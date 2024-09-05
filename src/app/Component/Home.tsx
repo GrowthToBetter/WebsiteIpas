@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="w-screen h-[900px] bg-[url('/img/background_Home.jpg')] relative flex justify-center flex-col items-center bg-cover bg-no-repeat">
+    <div className="w-screen h-screen bg-[url('/img/background_Home.jpg')] relative flex justify-center flex-col items-center bg-cover bg-no-repeat">
       <div className="w-screen h-[900px] bg-gradient-to-t from-black via-slate-100 to-slate-800 mix-blend-multiply absolute bottom-0"></div>
       <div className="flex justify-center items-center flex-col mb-8">
         <h1 className="text-white text-[85px] w-[780px] text-center m-5">
