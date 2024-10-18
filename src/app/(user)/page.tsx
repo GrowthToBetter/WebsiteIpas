@@ -2,15 +2,23 @@
 import { Archivo_Black } from "next/font/google";
 const archivo_black = Archivo_Black({ weight: "400", subsets: ["latin"] });
 import Image from "next/image";
-import Bara from "@/../../public/img/GWE.jpg";
-import { FormButton } from "./Components/Button";
+import { FormButton, LinkButton } from "./Components/Button";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import ModalProfile from "./Components/Modal";
+import Reaction from "@/../../public/img/Reaction.png";
 
 interface ProducInformation {
   header: string;
   description: string;
 }
+interface ConseptInformation {
+  header: string;
+  description: string;
+  link: string[];
+}
 export default function App() {
+  const [modal, setModal] = useState(false);
   const information: ProducInformation[] = [
     {
       header: "Energy Efficiency",
@@ -43,20 +51,69 @@ export default function App() {
         "Briquettes can be made from various types of biomass, so their availability is wide and does not depend on just one source. This makes it possible to produce briquettes in various regions and countries.",
     },
   ];
-  const andBricket: ProducInformation[]=[
+  const andBricket: ProducInformation[] = [
     {
-      header:"Dependence on Fossil Fuels",
-      description:"The reliance on fossil fuels has led to increased greenhouse gas (GHG) emissions, contributing to climate change and air pollution. The combustion of coal, oil, and natural gas releases significant amounts of carbon dioxide and other pollutants into the atmosphere."
+      header: "Dependence on Fossil Fuels",
+      description:
+        "The reliance on fossil fuels has led to increased greenhouse gas (GHG) emissions, contributing to climate change and air pollution. The combustion of coal, oil, and natural gas releases significant amounts of carbon dioxide and other pollutants into the atmosphere.",
     },
     {
-      header:"Waste Management Issues",
-      description:"Agricultural and organic waste often ends up in landfills or is burned openly, leading to environmental degradation. Open burning not only contributes to air pollution but also wastes valuable biomass that could be repurposed."
+      header: "Waste Management Issues",
+      description:
+        "Agricultural and organic waste often ends up in landfills or is burned openly, leading to environmental degradation. Open burning not only contributes to air pollution but also wastes valuable biomass that could be repurposed.",
     },
     {
-      header:"Health Hazards",
-      description: "The burning of fossil fuels and improper waste disposal can result in health problems for communities due to poor air quality and exposure to toxic substances."
-    }
-  ]
+      header: "Health Hazards",
+      description:
+        "The burning of fossil fuels and improper waste disposal can result in health problems for communities due to poor air quality and exposure to toxic substances.",
+    },
+  ];
+  const Consept: ConseptInformation[] = [
+    {
+      header: "Definisi Briket Arang",
+      description:
+        "Briket arang adalah sebuah produk energi yang dibuat dari material organik yang telah difermentasi dan kemudian dikompresi menjadi bentuk padat. Material umum yang digunakan untuk membuat briket arang antara lain kulit sabut buah nipah, tongkol jagung, kulit coklat, dan limbah ela sagu",
+      link: [
+        "https://www.semanticscholar.org/paper/1b586ce083e55d01d631547121213f0efa82f6a0",
+        "https://www.semanticscholar.org/paper/8ca6389a137482c55475a2b0f7b15389dbe46ae6",
+      ],
+    },
+  ];
+  const ConseptAdv: ConseptInformation[] = [
+    {
+      header: "Dehidrasi",
+      description:
+        " Materi organik yang digunakan (seperti kulit sabut buah nipah atau tongkol jagung) mengalami dehidrasi, yaitu penghapusan air dari material tersebut. Dehidrasi ini dilakukan untuk mengurangi kadar air dalam material agar nantinya dapat dibakar dengan lebih efisien, Material Organik + Air → Arang",
+      link: [
+        "https://www.semanticscholar.org/paper/1b586ce083e55d01d631547121213f0efa82f6a0",
+      ],
+    },
+    {
+      header: "Sumber Energi Alternatif",
+      description:
+        "Briket arang dapat dijadikan sumber energi alternatif yang ampuh dalam menghasilkan kalor. Nilai kalornya relatif tinggi, sehingga dapat digunakan untuk memasak, pendinginan, dan aplikasi lainnya",
+      link: [
+        "https://www.semanticscholar.org/paper/1b586ce083e55d01d631547121213f0efa82f6a0",
+        "https://www.semanticscholar.org/paper/14b244b6fd09f920d5a66bda0cca36ac6f3a3f35",
+      ],
+    },
+    {
+      header: "Peluang Bisnis Baru",
+      description:
+        "Produksi briket arang juga dapat menjadi peluang bisnis baru bagi masyarakat, terutama di daerah-daerah yang memiliki sumber material yang melimpah. Hal ini dapat membantu meningkatkan kesadaran dan keterampilan masyarakat dalam memanfaatkan limbah",
+      link: [
+        "https://www.semanticscholar.org/paper/8ca6389a137482c55475a2b0f7b15389dbe46ae6",
+      ],
+    },
+    {
+      header: "Ramah Lingkungan",
+      description:
+        "Briket arang relative ramah lingkungan karena tidak menghasilkan polusi sulfur dan dapat mengurangi volume sampah organik yang tidak terurai",
+      link: [
+        "https://www.semanticscholar.org/paper/129dd13c5555e950c3b63cd3d59026690770ef0e",
+      ],
+    },
+  ];
   const router = useRouter();
   const handleClick = () => {
     router.push("/team");
@@ -76,24 +133,45 @@ export default function App() {
             future{" "}
           </p>
         </div>
-        <div className="">
-          <button className="rounded-md w-[300px] p-3 lg:mt-16 mt-9 text-center bg-white bg-blend-soft-light bg-opacity-75 text-white">
+        <div className="flex">
+          <FormButton variant="base" className=" w-[300px] p-3 text-white">
             <p className="relative text-gray-300">Our Product</p>
-          </button>
-          <button className="rounded-md w-[300px] border-white p-3 ml-7 lg:mt-16 md:mt-9 text-center border-2 text-white">
-            <p className="relative text-gray-300">Our Conseptual</p>
-          </button>
-        </div>
-      </div>
-        <div className="m-40 ml-5 mt-30 ">
-          <h1
-            className={`${archivo_black.className} m-10 ml-5 text-[44px] tracking-widest  text-black  `}
+          </FormButton>
+          <FormButton
+            variant="base"
+            className="w-[300px] p-3 text-white"
+            onClick={() => {
+              setModal(true);
+            }}
           >
-            Why Bricket?
-          </h1>
-          <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 bg-white rounded-xl p-8 mt-4">
-            <>
-              {information.map((user, i) => (
+            <p className="relative text-gray-300">Our Conseptual</p>
+          </FormButton>
+        </div>
+        {modal && (
+          <ModalProfile
+            onClose={() => {
+              setModal(false);
+            }}
+          >
+            <div
+              id="container"
+              className="w-full bg-slate-50 rounded-3xl pb-6 border border-slate-200"
+            >
+              <Image
+                src={Reaction}
+                unoptimized
+                quality={100}
+                width={100}
+                height={100}
+                alt="banner"
+                className="w-full h-36 rounded-t-3xl"
+              />
+              <div className="ml-8 mt-2">
+                <p className="font-medium xl:text-[15px] lg:text-[14px] md:text-[13px] sm:text-[12px] text-[11px] text-black">
+                  Conseptual of Our Product
+                </p>
+              </div>
+              {Consept.map((user, i) => (
                 <div
                   key={i}
                   id="container"
@@ -103,44 +181,120 @@ export default function App() {
                     <p className="font-medium xl:text-[20px] lg:text-[19px] md:text-[18px] sm:text-[17px] text-[16px] text-black">
                       {user.header}
                     </p>
-                    <p
-                      className={`font-normal xl:text-[15px] lg:text-[14px] md:text-[13px] sm:text-[12px] text-[11px] mt-2`}
-                    >
-                      Description : {user?.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </>
-          </div>
-          <p className={`font-medium xl:text-[20px] lg:text-[19px] md:text-[18px] sm:text-[17px] text-[16px] text-black text-center ${archivo_black.className}` }>BEFORE BRICKET</p>
-          <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 bg-white rounded-xl p-8 mt-4">
-            {
-                andBricket.map((user, i) => (
-                  <div
-                    key={i}
-                    id="container"
-                    className="w-full bg-slate-50 rounded-3xl pb-6 border border-slate-200"
-                  >
-                    <div className="ml-12 mt-2">
-                      <p className="font-medium xl:text-[20px] lg:text-[19px] md:text-[18px] sm:text-[17px] text-[16px] text-black">
-                        {user.header}
-                      </p>
-                      <p
-                        className={`font-normal xl:text-[15px] lg:text-[14px] md:text-[13px] sm:text-[12px] text-[11px] mt-2`}
-                      >
-                        Description : {user?.description}
-                      </p>
+                    <div className="mt-6 justify-start">
+                      <span className="text-black">{user.description}</span>
                     </div>
                   </div>
-                ))
-              }
-          </div>
-          <FormButton variant="white" className="m-10 border-2 border-moklet" onClick={handleClick}>
-            {" "}
-            visit our team
-          </FormButton>
+                  {user.link.map((link, i) => (
+                    <LinkButton
+                      href={link}
+                      variant="base"
+                      className="text-black p-2 m-5"
+                      key={i}
+                    >
+                      Reference ke {i + 1}
+                    </LinkButton>
+                  ))}
+                </div>
+              ))}
+              <p
+                className={`${archivo_black.className} text-black md:text-[15px] md:w-[700px] text-[12px] w-[600px] text-center m-5}`}
+              >
+                Manfaat Briket Arang <br />
+                Manfaat briket arang sangat luas dan beragam, antara lain:
+              </p>
+              {ConseptAdv.map((user, i) => (
+                <div
+                  key={i}
+                  id="container"
+                  className="w-full bg-slate-50 rounded-3xl pb-6 border border-slate-200"
+                >
+                  <div className="ml-12 mt-2">
+                    <p className="font-medium xl:text-[20px] lg:text-[19px] md:text-[18px] sm:text-[17px] text-[16px] text-black">
+                      {user.header}
+                    </p>
+                    <div className="mt-6 justify-start">
+                      <p className="text-black">{user.description}</p>
+                    </div>
+                  </div>
+                  {user.link.map((link, i) => (
+                    <LinkButton
+                      href={link}
+                      key={i}
+                      className="text-black p-2 m-3"
+                      variant="base"
+                    >
+                      Reference ke {i + 1}
+                    </LinkButton>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </ModalProfile>
+        )}
+      </div>
+      <div className="m-40 ml-5 mt-30 ">
+        <h1
+          className={`${archivo_black.className} m-10 ml-5 text-[44px] tracking-widest  text-black  `}
+        >
+          Why Bricket?
+        </h1>
+        <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 bg-white rounded-xl p-8 mt-4">
+          <>
+            {information.map((user, i) => (
+              <div
+                key={i}
+                id="container"
+                className="w-full bg-slate-50 rounded-3xl pb-6 border border-slate-200"
+              >
+                <div className="ml-12 mt-2">
+                  <p className="font-medium xl:text-[20px] lg:text-[19px] md:text-[18px] sm:text-[17px] text-[16px] text-black">
+                    {user.header}
+                  </p>
+                  <p
+                    className={`font-normal xl:text-[15px] lg:text-[14px] md:text-[13px] sm:text-[12px] text-[11px] mt-2`}
+                  >
+                    Description : {user?.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </>
         </div>
+        <p
+          className={`font-medium xl:text-[20px] lg:text-[19px] md:text-[18px] sm:text-[17px] text-[16px] text-black text-center ${archivo_black.className}`}
+        >
+          BEFORE BRICKET
+        </p>
+        <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 bg-white rounded-xl p-8 mt-4">
+          {andBricket.map((user, i) => (
+            <div
+              key={i}
+              id="container"
+              className="w-full bg-slate-50 rounded-3xl pb-6 border border-slate-200"
+            >
+              <div className="ml-12 mt-2">
+                <p className="font-medium xl:text-[20px] lg:text-[19px] md:text-[18px] sm:text-[17px] text-[16px] text-black">
+                  {user.header}
+                </p>
+                <p
+                  className={`font-normal xl:text-[15px] lg:text-[14px] md:text-[13px] sm:text-[12px] text-[11px] mt-2`}
+                >
+                  Description : {user?.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <FormButton
+          variant="white"
+          className="m-10 border-2 border-moklet"
+          onClick={handleClick}
+        >
+          {" "}
+          visit our team
+        </FormButton>
+      </div>
     </div>
   );
 }

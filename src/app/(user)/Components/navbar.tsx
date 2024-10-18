@@ -39,7 +39,7 @@ export default function Navbar() {
               Team
             </span>
           </Link>
-          <Link href="/" className={`decoration-black xl:mx-8 sm:mx-3`}>
+          <Link href="https://shopee.co.id/product/1040541852/25716741606?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVHQ3ZkZSUTMrR3pBWmZZNzdrcnRBMDAwaXZEakU0NHNFQUQ3eFpHTVJNNUllcHRIWUVLT3JvZFRtUzVHQ0wyeDZnUGRUS1VOUE43Ynl4ZFNJcnFLcVJxalZLRU40Rm83OHp4aHJ6blhibGUzblpCYnBSdGNDY05wbTBhUW8xRlF3PT0" target="_blank" className={`decoration-black xl:mx-8 sm:mx-3`}>
             <span
               className={`inline-block hover:bg-white hover:text-black rounded-lg duration-500 m-4 h-fit w-fit  xl:text-[20px] p-3 xl:font-[250] ${
                 pathName === "/product"
@@ -50,7 +50,7 @@ export default function Navbar() {
               Product
             </span>
           </Link>
-          <Link href="/" className={`decoration-black xl:mx-8 sm:mx-3 `}>
+          <Link href="/about" className={`decoration-black xl:mx-8 sm:mx-3 `}>
             <span
               className={`inline-block hover:bg-white hover:text-black rounded-lg duration-500 m-4 h-fit w-fit  xl:text-[20px] p-3 xl:font-[250] ${
                 pathName === "/about"
