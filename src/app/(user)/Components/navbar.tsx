@@ -28,7 +28,7 @@ export default function Navbar() {
               Home
             </span>
           </Link>
-          <Link href="/" className={`decoration-black xl:mx-8 sm:mx-3`}>
+          <Link href="/team" className={`decoration-black xl:mx-8 sm:mx-3`}>
             <span
               className={`inline-block hover:bg-white hover:text-black rounded-lg duration-500 m-4 h-fit w-fit  xl:text-[20px] p-3 xl:font-[250] ${
                 pathName === "/team"
