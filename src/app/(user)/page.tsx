@@ -152,6 +152,7 @@ export default function App() {
             onClose={() => {
               setModal(false);
             }}
+          title="Conseptual of Our Product"
           >
             <div
               id="container"
@@ -166,11 +167,6 @@ export default function App() {
                 alt="banner"
                 className="w-full h-36 rounded-t-3xl"
               />
-              <div className="ml-8 mt-2">
-                <p className="font-medium xl:text-[15px] lg:text-[14px] md:text-[13px] sm:text-[12px] text-[11px] text-black">
-                  Conseptual of Our Product
-                </p>
-              </div>
               {Consept.map((user, i) => (
                 <div
                   key={i}
