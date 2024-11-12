@@ -4,7 +4,7 @@ const archivo_black = Archivo_Black({ weight: "400", subsets: ["latin"] });
 import Image, { StaticImageData } from "next/image";
 import { FormButton, LinkButton } from "./Components/Button";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { use, useState } from "react";
 import ModalProfile from "./Components/Modal";
 import Reaction from "@/../../public/img/Reaction.png";
 import Arang from "@/../../public/img/arang (1).jpg";
@@ -12,6 +12,8 @@ import Tepung from "@/../../public/img/tepung.jpg";
 import Water from "@/../../public/img/water.jpg";
 import Panci from "@/../../public/img/Panji.jpg";
 import Kompor from "@/../../public/img/Kompor.jpg";
+import dokum1 from "@/../../public/img/dokum1.jpg";
+import dokum2 from "@/../../public/img/dokum2.jpg";
 import Wadah from "@/../../public/img/Wadah.jpg";
 
 interface ProducInformation {
@@ -29,6 +31,7 @@ interface card {
 }
 export default function App() {
   const [modal, setModal] = useState(false);
+  const [ourprod, setOurProd] = useState(false);
   const information: ProducInformation[] = [
     {
       header: "Energy Efficiency",
@@ -128,27 +131,32 @@ export default function App() {
   const handleClick = () => {
     router.push("/team");
   };
-  const filteredUsers: card[] = [{
-    path: Arang,
-    description:"Arang"
-  },{
-    path:Tepung,
-    description:"Tepung Ketan"
-  },{
-    path:Water,
-    description:"Air"
-  },{
-    path:Panci,
-    description:"Panci"
-  },{
-    path:Kompor,
-    description:"Kompor"
-  },{
-    path:Wadah,
-    description:"Wadah"
-  }
-
-] 
+  const filteredUsers: card[] = [
+    {
+      path: Arang,
+      description: "Arang",
+    },
+    {
+      path: Tepung,
+      description: "Tepung Ketan",
+    },
+    {
+      path: Water,
+      description: "Air",
+    },
+    {
+      path: Panci,
+      description: "Panci",
+    },
+    {
+      path: Kompor,
+      description: "Kompor",
+    },
+    {
+      path: Wadah,
+      description: "Wadah",
+    },
+  ];
   return (
     <div>
       <div className="w-screen h-screen bg-[url('/img/background_Home.jpg')] relative top-0 flex justify-center flex-col items-center bg-cover bg-no-repeat">
@@ -165,25 +173,72 @@ export default function App() {
           </p>
         </div>
         <div className="flex">
-          <FormButton variant="base" className=" w-[300px] p-3 text-white">
-            <p className="relative text-gray-300">Our Product</p>
+          <FormButton
+            variant="base"
+            onClick={() => {
+              setOurProd(true);
+            }}
+            className=" w-[300px] p-3 relative text-gray-300"
+          >
+            Our Product
           </FormButton>
           <FormButton
             variant="base"
-            className="w-[300px] p-3 text-white"
+            className="w-[300px] p-3 relative text-gray-300"
             onClick={() => {
               setModal(true);
             }}
           >
-            <p className="relative text-gray-300">Our Conseptual</p>
+            Our Conseptual
           </FormButton>
         </div>
+        {ourprod && (
+          <ModalProfile
+            title="Our Product"
+            onClose={() => {
+              setOurProd(false);
+            }}
+            className="flex p-0 "
+          >
+            <video
+              className="w-full max-w-md rounded-lg shadow-lg"
+              controls
+              preload="metadata"
+            >
+              <source
+                src="/img/briketvideo.mp4"
+                type="video/mp4"
+              />
+              Video Documentation About Making Briquette
+            </video>
+            <div className="grid grid-row-2 p-3">
+            <Image
+                src={dokum1}
+                unoptimized
+                quality={100}
+                width={100}
+                height={100}
+                alt="banner"
+                className="w-full h-full rounded-3xl p-2"
+              />
+              <Image
+                src={dokum2}
+                unoptimized
+                quality={100}
+                width={100}
+                height={100}
+                alt="banner"
+                className="w-full h-full rounded-3xl p-2"
+              />
+            </div>
+          </ModalProfile>
+        )}
         {modal && (
           <ModalProfile
             onClose={() => {
               setModal(false);
             }}
-          title="Conseptual of Our Product"
+            title="Conseptual of Our Product"
           >
             <div
               id="container"
@@ -205,7 +260,10 @@ export default function App() {
                   className="w-full bg-slate-50 rounded-3xl pb-6 border border-slate-200"
                 >
                   <div className="ml-12 mt-2">
-                    <p key={i} className="font-medium xl:text-[20px] lg:text-[19px] md:text-[18px] sm:text-[17px] text-[16px] text-black">
+                    <p
+                      key={i}
+                      className="font-medium xl:text-[20px] lg:text-[19px] md:text-[18px] sm:text-[17px] text-[16px] text-black"
+                    >
                       {user.header}
                     </p>
                     <div className="mt-6 justify-start">
@@ -258,40 +316,41 @@ export default function App() {
               ))}
             </div>
             <p
-                className={`${archivo_black.className} text-black md:text-[15px] md:w-[700px] text-[12px] w-[600px] text-center m-5}`}
-              >
-                Alat Dan Bahan
-              </p>
+              className={`${archivo_black.className} text-black md:text-[15px] md:w-[700px] text-[12px] w-[600px] text-center m-5}`}
+            >
+              Alat Dan Bahan
+            </p>
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 bg-white rounded-xl p-8 mt-4">
-            <>
-              {filteredUsers.map((user, i) => (
-                <div
-                  key={i}
-                  id="container"
-                  className="w-full bg-slate-50 rounded-3xl pb-6 border border-slate-200"
-                >
-                  <Image
-                    src={
-                      user.path
-                    }
-                    unoptimized
-                    quality={100}
-                    width={100}
-                    height={100}
-                    alt="banner"
-                    className="w-full h-36 rounded-t-3xl"
-                  />
-                  <div className="ml-8 mt-2">
-                    <div className="flex justify-between p-5">
-                      <p key={i} className="font-medium xl:text-[15px]  lg:text-[14px] md:text-[13px] sm:text-[12px] text-[11px] text-black">
-                        {user.description}
-                      </p>
+              <>
+                {filteredUsers.map((user, i) => (
+                  <div
+                    key={i}
+                    id="container"
+                    className="w-full bg-slate-50 rounded-3xl pb-6 border border-slate-200"
+                  >
+                    <Image
+                      src={user.path}
+                      unoptimized
+                      quality={100}
+                      width={100}
+                      height={100}
+                      alt="banner"
+                      className="w-full h-36 rounded-t-3xl"
+                    />
+                    <div className="ml-8 mt-2">
+                      <div className="flex justify-between p-5">
+                        <p
+                          key={i}
+                          className="font-medium xl:text-[15px]  lg:text-[14px] md:text-[13px] sm:text-[12px] text-[11px] text-black"
+                        >
+                          {user.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </>
-          </div>
+                ))}
+              </>
+            </div>
           </ModalProfile>
         )}
       </div>
@@ -310,10 +369,14 @@ export default function App() {
                 className="w-full bg-slate-50 rounded-3xl pb-6 border border-slate-200"
               >
                 <div className="ml-12 mt-2">
-                  <p key={i} className="font-medium xl:text-[20px] lg:text-[19px] md:text-[18px] sm:text-[17px] text-[16px] text-black">
+                  <p
+                    key={i}
+                    className="font-medium xl:text-[20px] lg:text-[19px] md:text-[18px] sm:text-[17px] text-[16px] text-black"
+                  >
                     {user.header}
                   </p>
-                  <p key={i}
+                  <p
+                    key={i}
                     className={`font-normal xl:text-[15px] lg:text-[14px] md:text-[13px] sm:text-[12px] text-[11px] mt-2`}
                   >
                     Description : {user?.description}
@@ -336,10 +399,14 @@ export default function App() {
               className="w-full bg-slate-50 rounded-3xl pb-6 border border-slate-200"
             >
               <div className="ml-12 mt-2">
-                <p key={i} className="font-medium xl:text-[20px] lg:text-[19px] md:text-[18px] sm:text-[17px] text-[16px] text-black">
+                <p
+                  key={i}
+                  className="font-medium xl:text-[20px] lg:text-[19px] md:text-[18px] sm:text-[17px] text-[16px] text-black"
+                >
                   {user.header}
                 </p>
-                <p key={i}
+                <p
+                  key={i}
                   className={`font-normal xl:text-[15px] lg:text-[14px] md:text-[13px] sm:text-[12px] text-[11px] mt-2`}
                 >
                   Description : {user?.description}
