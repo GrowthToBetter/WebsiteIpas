@@ -46,8 +46,8 @@ export default function App() {
     {
       name: "Navalovsky Jose Allenzo",
       image: Ochi,
-      role: "",
-      description:""
+      role: "Presentation ",
+      description:"The one and Only he can do is presentating the project"
     },
     {
       name: "Labibah Sausan Qothrunnada",
