@@ -36,49 +36,49 @@ export default function App() {
     {
       header: "Energy Efficiency",
       description:
-        "Charcoal briquettes have a higher energy density, making them more efficient at generating heat. This means that less fuel is required to achieve the same level of heating, which in turn reduces the need for resources",
+        "Briket arang memiliki kepadatan energi yang lebih tinggi sehingga lebih efisien dalam menghasilkan panas. Artinya, lebih sedikit bahan bakar yang dibutuhkan untuk mencapai tingkat pemanasan yang sama, sehingga mengurangi kebutuhan sumber daya",
     },
     {
       header: "Energy Stability",
       description:
-        "Briquettes can be stored for long periods of time without losing value, thereby providing stability in energy supply. This is very important in dealing with energy price fluctuations on the global market.",
+        "Briket dapat disimpan dalam jangka waktu lama tanpa kehilangan nilainya, sehingga memberikan kestabilan pasokan energi. Hal ini sangat penting dalam menghadapi fluktuasi harga energi di pasar global.",
     },
     {
       header: "Prevent Deforestation",
       description:
-        "By using charcoal briquettes as a substitute for firewood, we can help reduce deforestation. The use of briquettes from waste reduces pressure on forests to provide firewood",
+        "Dengan menggunakan briket arang sebagai pengganti kayu bakar, kita dapat membantu mengurangi deforestasi. Penggunaan briket dari limbah mengurangi tekanan pada hutan untuk menyediakan kayu bakar",
     },
     {
       header: "Lower emison",
       description:
-        "Burning charcoal briquettes produces lower greenhouse gas emissions compared to burning firewood. Charcoal briquettes are high in calories and burn cleaner, producing less smoke and reducing air pollution",
+        "Pembakaran briket arang menghasilkan emisi gas rumah kaca yang lebih rendah dibandingkan dengan pembakaran kayu bakar. Briket arang tinggi kalori dan pembakarannya lebih bersih, menghasilkan lebih sedikit asap dan mengurangi polusi udara",
     },
     {
       header: "Economic support",
       description:
-        "The briquette industry can be a source of income for local communities who have natural resources such as wood or biomass. This can improve the economic welfare of the community.",
+        "Industri briket dapat menjadi sumber pendapatan bagi masyarakat lokal yang memiliki sumber daya alam seperti kayu atau biomassa. Hal ini dapat meningkatkan kesejahteraan ekonomi masyarakat.",
     },
     {
       header: "wide availability",
       description:
-        "Briquettes can be made from various types of biomass, so their availability is wide and does not depend on just one source. This makes it possible to produce briquettes in various regions and countries.",
+        "Briket dapat dibuat dari berbagai jenis biomassa sehingga ketersediaannya luas dan tidak bergantung pada satu sumber saja. Hal ini memungkinkan produksi briket di berbagai wilayah dan negara.",
     },
   ];
   const andBricket: ProducInformation[] = [
     {
       header: "Dependence on Fossil Fuels",
       description:
-        "The reliance on fossil fuels has led to increased greenhouse gas (GHG) emissions, contributing to climate change and air pollution. The combustion of coal, oil, and natural gas releases significant amounts of carbon dioxide and other pollutants into the atmosphere.",
+        "Ketergantungan pada bahan bakar fosil telah menyebabkan peningkatan emisi gas rumah kaca (GRK), yang berkontribusi terhadap perubahan iklim dan polusi udara. Pembakaran batu bara, minyak, dan gas alam melepaskan sejumlah besar karbon dioksida dan polutan lainnya ke atmosfer.",
     },
     {
       header: "Waste Management Issues",
       description:
-        "Agricultural and organic waste often ends up in landfills or is burned openly, leading to environmental degradation. Open burning not only contributes to air pollution but also wastes valuable biomass that could be repurposed.",
+        "Limbah pertanian dan organik seringkali berakhir di tempat pembuangan sampah atau dibakar secara terbuka, sehingga menyebabkan degradasi lingkungan. Pembakaran terbuka tidak hanya berkontribusi terhadap polusi udara tetapi juga menyia-nyiakan biomassa berharga yang dapat dimanfaatkan kembali.",
     },
     {
       header: "Health Hazards",
       description:
-        "The burning of fossil fuels and improper waste disposal can result in health problems for communities due to poor air quality and exposure to toxic substances.",
+        "Pembakaran bahan bakar fosil dan pembuangan limbah yang tidak tepat dapat mengakibatkan gangguan kesehatan bagi masyarakat akibat buruknya kualitas udara dan paparan zat beracun.",
     },
   ];
   const Consept: ConseptInformation[] = [
