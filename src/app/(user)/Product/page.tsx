@@ -64,7 +64,7 @@ export default function App() {
 
     try {
       const formData = {
-        gross_amount: "50000",
+        gross_amount: "500",
         first_name: "Unknown",
         last_name: "",
         email: "unknown@gmail.com",
