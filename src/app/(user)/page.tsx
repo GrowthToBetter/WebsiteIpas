@@ -25,7 +25,7 @@ interface ConseptInformation {
   description: string;
   link: string[];
 }
-interface card {
+export interface card {
   path: StaticImageData;
   description: string;
 }
@@ -230,6 +230,18 @@ export default function App() {
                 alt="banner"
                 className="w-full h-full rounded-3xl p-2"
               />
+              <h1 className={`${archivo_black.className} text-white text-[20px]`}>Hasil Percobaan</h1>
+              <video
+              className="w-full max-w-md rounded-lg shadow-lg"
+              controls
+              preload="metadata"
+            >
+              <source
+                src="/img/hasil.mp4"
+                type="video/mp4"
+              />
+              Video Documentation About Making Briquette
+            </video>
             </div>
           </ModalProfile>
         )}

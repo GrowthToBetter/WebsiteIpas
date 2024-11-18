@@ -52,8 +52,8 @@ export default function App() {
     {
       name: "Labibah Sausan Qothrunnada",
       image: Bibah,
-      role: "",
-      description:""
+      role: "Asisstant",
+      description:"Making a briquette with our secretary"
     }
 
   ]
